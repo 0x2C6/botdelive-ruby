@@ -24,12 +24,12 @@ Or install it yourself as:
 Let's require the gem first. Don't forget to define "app_id" and "secret_key"
 
 ```ruby
-    require 'bot_delive'
+require 'bot_delive'
 
-    BotDelive.configure do |config|
-        config.app_id = 'test_id'
-        config.secret_key = 'test_secret'
-      end
+BotDelive.configure do |config|
+  config.app_id = 'test_id'
+  config.secret_key = 'test_secret'
+end
 ```
 **Verify the "Access Code":**
 

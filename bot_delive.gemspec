@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Farhad"]
   spec.email         = ["farhad9801@gmail.com"]
 
-  spec.summary       = %q{A Ruby gem of BotDelive API }
+  spec.summary       = %q{ A Ruby gem of BotDelive API }
   spec.description   = %q{BotDelive is a Push Notification and 2-factor authentication API service that works over the chat bots (Telegram and Messenger).}
-  # spec.homepage      = "Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/0x2C6/botdelive-ruby"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
