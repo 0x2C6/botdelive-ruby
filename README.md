@@ -4,6 +4,12 @@
 
 -------------
 
+Requirements
+-------------
+
+1. [Create an account](https://botdelive.com/login).
+2. Create an app on the dashboard to get appId and secretKey credentials.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -34,9 +40,9 @@ end
 **Verify the "Access Code":**
 
 ```ruby
-@response = BotDelive.verify(access_code: 'ByffboUAX')
+@response = BotDelive.verify(access_code: 'access-code')
 if @response.success?
-    @response.payload.user_id
+  @response.payload.user_id
 end
 ```
 
@@ -45,7 +51,7 @@ end
 ```ruby
 @response = BotDelive.auth(user_id: 'user-id')
 if @response.success?
-    @response.payload.respond
+  @response.payload.respond
 end
 ```
 
@@ -58,7 +64,7 @@ end
 )
 
 if @response.success?
-    puts "push notification sent successfully"
+  puts "push notification sent successfully"
 end
 ```
 
