@@ -1,8 +1,8 @@
 # BotDelive
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bot_delive`. To experiment with that code, run `bin/console` for an interactive prompt.
+**BotDelive** is a Push Notification and 2-factor authentication API service that works over the chat bots (Telegram and Messenger).
 
-TODO: Delete this and the text above, and describe your gem
+-------------
 
 ## Installation
 
@@ -21,23 +21,53 @@ Or install it yourself as:
     $ gem install bot_delive
 
 ## Usage
+Let's require the gem first. Don't forget to define "app_id" and "secret_key"
 
-TODO: Write usage instructions here
+```ruby
+    require 'bot_delive'
 
-## Development
+    BotDelive.configure do |config|
+        config.app_id = 'test_id'
+        config.secret_key = 'test_secret'
+      end
+```
+**Verify the "Access Code":**
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+@response = BotDelive.verify(access_code: 'ByffboUAX')
+if @response.success?
+    @response.payload.user_id
+end
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+**Send 2-factor authentication request (long polling):**
 
-## Contributing
+```ruby
+@response = BotDelive.auth(user_id: 'user-id')
+if @response.success?
+    @response.payload.respond
+end
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bot_delive. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+**Send Push Notification request:**
+
+```ruby
+@response = BotDelive.push(
+    user_id: 'UjplD0x56P4E-Y_XsZRFM3TPivpSLWB-rqy5Y0Xv',
+    message: 'test message from ruby test'
+)
+
+if @response.success?
+    puts "push notification sent successfully"
+end
+```
+
+Documentation
+-------------
+
+Complete documentation available at: [https://botdelive.com/docs](https://botdelive.com/docs)
+
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the BotDelive project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/bot_delive/blob/master/CODE_OF_CONDUCT.md).
