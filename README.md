@@ -53,7 +53,7 @@ end
 
 ```ruby
 @response = BotDelive.push(
-    user_id: 'UjplD0x56P4E-Y_XsZRFM3TPivpSLWB-rqy5Y0Xv',
+    user_id: 'user-id',
     message: 'test message from ruby test'
 )
 
